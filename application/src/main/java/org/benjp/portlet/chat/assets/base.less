@@ -32,7 +32,14 @@
   border-top: 1px solid @colorBorder;
   border-right: 1px solid @colorBorder;
 }
-
+#chat-users
+{
+  height: (@height - 44);
+  overflow: auto;
+  border: 1px solid @colorBorder;
+  cursor: default;
+  background-color: #f0f0f0;
+}
 .chat-status-chat {
   padding: 0;
   display: inline-block;
@@ -85,19 +92,20 @@
 }
 
 table.list-rooms {
+  background-color: #ffffff;
   tr.info td {
     #gradient > .vertical(#5d88ce, #3261ac);
     color: #FFF !important;
   }
   .header-room {
     background: #f0f0f0;
+    .box-shadow(0 0 3px 0 rgba(0, 0, 0, 0.1));
     td {
       color: #333;
       border-top: 1px solid #cfcfcf;
       border-bottom: 1px solid #cfcfcf;
       font-weight: bold;
       padding: 7px 5px 7px 20px;
-      .box-shadow(0 0 3px 0 rgba(0, 0, 0, 0.07));
     }
     .room-total {
       float: right;
@@ -514,10 +522,15 @@ table.list-rooms {
 }
 .user-space {
   .user-status(@colorSpace);
-}
-.user-team {
-  .user-status(@colorSpace);
 }*/
+.user-team, .user-space {
+  background-image: url('@{imgPath}uiIconChatLightGray.png');
+  &:hover {
+     background-image: url("@{imgPath}uiIconChatColor.png");
+     background-position: -80px;
+  }
+}
+
 
 .room-total-fixed {
   margin-left: 5px;

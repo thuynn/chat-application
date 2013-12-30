@@ -1726,14 +1726,15 @@ ChatApplication.prototype.getRoomHtml = function(room, roomPrevUser) {
   if (room.user!==roomPrevUser) {
     out += '<tr id="users-online-'+room.user.replace(".", "-")+'" class="users-online">';
     out += '<td class="td-status">';
-    out += '<span class="user-'+room.status+' ';
-    if (room.isFavorite == "true") {
-      out += 'user-favorite';
-    } else {
-      out += 'user-status';
-    }
+    out += '<i class="';
     if (room.status === "space" || room.status === "team") {
-      out += ' user-space-front';
+      out += 'uiIconChatTeam uiIconChatLightGray';
+    }
+    out += ' user-'+room.status+ '';
+    if (room.isFavorite == "true") {
+      out += ' user-favorite';
+    } else {
+      out += ' user-status';
     }
     out +='" user-data="'+room.user+'" data-toggle="tooltip"';
     if (room.isFavorite == "true") {
@@ -1741,7 +1742,7 @@ ChatApplication.prototype.getRoomHtml = function(room, roomPrevUser) {
     } else {
       out += ' title="Add to favorites"';
     }
-    out += '></span>';
+    out += '></i>';
     out += '</td>';
     out +=  '<td>';
     if (room.isActive=="true") {
