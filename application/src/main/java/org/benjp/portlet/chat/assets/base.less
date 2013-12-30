@@ -84,22 +84,21 @@
   }
 }
 
-.list-rooms {
+table.list-rooms {
+  tr.info td {
+    #gradient > .vertical(#5d88ce, #3261ac);
+    color: #FFF !important;
+  }
   .header-room {
+    background: #f0f0f0;
     td {
       color: #333;
-      background: #f0f0f0;
       border-top: 1px solid #cfcfcf;
       border-bottom: 1px solid #cfcfcf;
       font-weight: bold;
       padding: 7px 5px 7px 20px;
-      //.border-radius(3px 0 0 0);
       .box-shadow(0 0 3px 0 rgba(0, 0, 0, 0.07));
-      [class^="uiIcon"] {
-        margin-top: 1px;
-      }
     }
-
     .room-total {
       float: right;
       display: none;
@@ -113,20 +112,26 @@
       .border-radius(4px 4px 0 0);
     }
     
-    &:hover {
+    &:hover, &.collapsed {
+      background: #f8f8f8;
       > td {
-        background: #f8f8f8;
       }
     }
   }
-
+  
   div.uiDropdownWithIcon {
     margin: 0;
+    &.pull-left {
+      margin-right: 15px;
+    }
     &.pull-right {
       .uiIconArrowRight {
       }
       .uiIconArrowDown {
-      
+        background-position: 0 -118px;
+      }
+      .uiIconArrowRight {
+        background-position: -40px -118px;
       }
     }
   }
@@ -241,12 +246,6 @@
 #chats {
   font-size: 12px;
 }
-
-tr.info td {
-  background-color: #4f72ac !important;
-  color: #FFF !important;
-}
-
 
 .chat-message
 {
@@ -442,40 +441,53 @@ tr.info td {
 .td-status {
   width: 16px;
   min-width: 16px;
-  padding: 8px 5px 8px 6px !important;
+  padding: 8px 17px 8px 20px !important;
 }
-.users-online td {
-  border: 0px !important;
-  color: #333;
-  font-size: 12px;
-  padding: 5px 5px 5px 0px;
-  vertical-align: middle;
+.users-online {
+  td {
+    border: 0px !important;
+    color: #333;
+    font-size: 12px;
+    padding: 5px 5px 5px 0px;
+    vertical-align: middle;
+  }
 }
 .users-online:hover {
   #gradient > .vertical(#f0f0f0, #f8f8f8);
 }
 
+/* Icon User Status */
+.user-status, .user-favorite {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("@{imgPath}uiIconChatColor.png");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  vertical-align: middle;
+}
 .user-status {
-  .background(-64px, 0);
-  width: 16px;
-  display: block;
-  height: 16px;
-  float: left;
+  &.user-available {
+    background-position: 0 0;
+  }
+  &.user-donotdisturb {
+    background-position: -20px 0;
+  }
+  &.user-away {
+    background-position: -40px 0;
+  }
+  &.user-invisible {
+    background-position: -60px 0;
+  }
+  &:hover {
+    background-position: -80px;
+    cursor: pointer;
+  }
 }
-.user-status:hover {
-  .background(-80px, 0);
-}
-
-.user-favorite{
-  .background(-80px, 0);
-  width: 16px;
-  display: block;
-  height: 16px;
-  float: left;
-}
-
-.user-favorite:hover {
-  .background(-64px, 0);
+.user-favorite {
+  &:hover{
+    background-position: 0 0;
+  }
 }
 
 .user-space-front {
@@ -486,26 +498,10 @@ tr.info td {
   float: left;
 }
 
-.user-status:hover .user-space-front:hover {
-  .background(-80px, 0);
-}
-
-.user-favorite:hover .user-space-front:hover {
-  .background(-64px, 0);
-}
-
-.user-status(@colorParam) {
-  background-color: @colorParam;
-  margin: 2px;
-  width: 12px;
-  height: 12px;
-  display: block;
-}
-
-.user-available {
+/*.user-available {
   .user-status(@colorAvailable);
 }
-.user-donotdisturb {
+.user-donotdisturb {  
   .user-status(@colorDoNoDisturb);
 }
 .user-away {
@@ -519,7 +515,7 @@ tr.info td {
 }
 .user-team {
   .user-status(@colorSpace);
-}
+}*/
 
 .room-total-fixed {
   margin-left: 5px;
