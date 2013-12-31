@@ -53,9 +53,9 @@
   <div class="uiGrayLightBox clearfix input-prepend no-user-selection">
     <span class="menu-standard pull-left">
       <span class="avatar-user">
-        <div class="activityAvatar avatarCircle" style="width:30px; height:30px;">
+        <div class="activityAvatar avatarCircle" >
           <a rel="tooltip" data-placement="bottom" href="/portal/intranet/profile/benjamin" data-original-title="">
-            <img class="avatar-image" onerror="this.src='/chat/img/Avatar.gif;'" src='/rest/jcr/repository/social/production/soc:providers/soc:organization/soc:<%=user%>/soc:profile/soc:avatar' width='30px' height='30px'  style="width:30px; height:30px;">
+            <img class="avatar-image" onerror="this.src='/chat/img/Avatar.gif;'" src='/rest/jcr/repository/social/production/soc:providers/soc:organization/soc:<%=user%>/soc:profile/soc:avatar' >
           </a>
         </div>
       </span>

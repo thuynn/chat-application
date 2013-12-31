@@ -657,15 +657,11 @@ table.list-rooms {
 	padding: 3px 12px;
 	background-color: @colorBgLight;
 }
-.msgln-odd
-{
-	padding: 3px 12px;
-	background-color: @backgroundColor;
-}
+
 .user-link
 {
-	color: @colorUserLink;
-  text-decoration: none;
+	color: @grayDark;
+   font-weight: bold;
 }
 
 .msg-time
@@ -678,8 +674,6 @@ table.list-rooms {
 }
 
 .system-event {
-  line-height: 12px;
-  vertical-align: bottom;
   font-weight: bold;
 }
 
@@ -783,12 +777,32 @@ hr
   color: #AAAAAA;
 }
 
-#chats .msgln{
-	background: url('@{imgPath}emptyChat.png') no-repeat center center;
-	height: 100%;
-	padding: 0px !important;
-	color: @gray;
+#chats {
+	.msgln{
+		background: url('@{imgPath}emptyChat.png') no-repeat center center;
+		height: 100%;
+		padding: 0px !important;
+		color: @gray;
+	}
+	.msgln-odd {
+		padding: 20px 0px;
+		background: #f8f8f8;
+		.msg-text{
+			margin: 0px 60px 0px 110px;
+			word-wrap: break-word;
+			font-weight: bold;
+		}
+		.msg-date{
+			color: @grayLight;
+			margin-right: 20px;
+		}
+		.msg-user{
+			padding: 0px 10px 0px 45px;
+			color: @grayDark;
+		}
+	}
 }
+
 
 /**
  * MODALS
